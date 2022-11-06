@@ -12,7 +12,8 @@ import triple from '../../img/photos/triple.jpg';
 import queen from '../../img/photos/queen.jpg';
 import presidential from '../../img/photos/presidential.jpg';
 
-import {getSelectedHouseKeeper} from '../../controllers/houseKeeper'
+import {getSelectedHouseKeeper, completeAssignedTask} from '../../controllers/houseKeeper'
+import {getAvailableRooms} from '../../controllers/room';
 
 import Navbar from '../../components/Reservation_Navbar';
 import '../../css/modern.css';
@@ -23,13 +24,71 @@ export default function ViewHouseKeeper() {
     const { id } = useParams();
 
     const [houseKeeperData, setHouseKeeperData] = useState({});
+	// const [avaiableRooms, setAvaiableRooms] = useState([]);
+	// const [isAssigningTask, setAssigningTask] = useState(false);
+	// const [assignedRoom, setAssignedRoom] = useState("");
 
     useEffect(() => {
         getSelectedHouseKeeper(id).then((result) => {
-        console.log(result);
-        setHouseKeeperData(result);
+        	// console.log(result);
+        	setHouseKeeperData(result);
         });
+		// getAvailableRooms().then((result) => {
+		// 	console.log(result)
+		// 	let rooms = [];
+		// 	for (let item of result) {
+		// 		rooms.push({ value: item.name, label: item.name })
+		// 	}
+		// 	rooms.push({ value: "Hall A", label: "Hall A" })
+		// 	rooms.push({ value: "Hall B", label: "Hall B" })
+		// 	rooms.push({ value: "Outdoor", label: "Outdoor" })
+		// 	setAvaiableRooms(rooms);
+		// 	// avaiableRooms.push(result);
+        // });
     }, []);
+
+	// const onAssignTask = async (e) => {
+	// 	setAssigningTask(true);
+	// 	setAssignedRoom(e.value);
+	// }
+
+	// const onSaveAssignTask = async () => {
+	// 	completeAssignedTask(houseKeeperData._id, assignedRoom)
+    //         .then((result) => {
+    //             if (result != undefined) {
+    //                 swal({
+    //                     title: "Success!",
+    //                     text: "Task added successfully",
+    //                     icon: 'success',
+    //                     timer: 2000,
+    //                     button: false,
+    //                 })
+	// 				.then((reload) => {
+	// 					window.location.reload();
+	// 				});;
+    //             } else {
+    //                 swal({
+    //                     title: "Error!",
+    //                     text: "Something went wrong went wrong. Try again",
+    //                     icon: 'error',
+    //                     dangerMode: true,
+    //                     button: false,
+    //                 })
+    //             }
+    //         })
+    //         .catch ((err) => {
+    //             swal({
+    //                 title: "Error!",
+    //                 text: "Something went wrong with the network. Try reloading page",
+    //                 icon: 'error',
+    //                 dangerMode: true,
+    //                 button: true,
+    //             })
+    //             .then((reload) => {
+    //                 window.location.reload();
+    //             });
+    //         })
+	// }
 
 	return (
 
@@ -103,6 +162,18 @@ export default function ViewHouseKeeper() {
 												<th>Joined Date</th>
 												<td>{houseKeeperData.joinedDate}</td>
 											</tr>
+											{/* <br />
+											<tr>
+												<th>Assign Task</th>
+												<td>
+													<Select 
+														options={avaiableRooms}
+														isClearable
+                                            			isSearchable
+														onChange={onAssignTask}
+													/>
+												</td>
+											</tr> */}
                                             
 										</tbody>
 									</table></div>

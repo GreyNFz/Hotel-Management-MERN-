@@ -57,6 +57,16 @@ export const getReservationById = async (req, res) => {
     })
 }
 
+export const getReservationByRoom = async (req, res) => {
+    let room = req.params.room;
+    await Reservation.find({room:room}).then((reservation)=>{
+        res.send(reservation);
+    }).catch((err)=>{
+        console.log(err);
+        res.status(500).send({status:"Error with retrieving data",error:err.message})
+    })
+}
+
 export const getReservationsInAGivenPeriod = async (req, res) => {
     let checkInDate = req.params.checkInDate;
     let checkOutDate = req.params.CheckOutDate;

@@ -2,32 +2,31 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-const houseKeeperSchema = new Schema({
+const assignedTaskHouseKeeperSchema = new Schema({
     
-    name: {
+    houseKeeperId: {
         type: String,
         required: true,
     },
-    dob: {
+    houseKeeperName: {
         type: String,
         required: true,
     },
-    gender: {
+    room: {
         type: String,
         required: true,
     },
-    mobile: {
+    task: {
+        type: String,
+    },
+    date: {
         type: String,
         required: true,
     },
-    address: {
-        type: String,
-        required: true,
-    },
-    joinedDate: {
+    assignedDate: {
         type: String,
         required: true,
     }
 });
 
-export const HouseKeeper = mongoose.model('housekeepers', houseKeeperSchema);
+export const AssignedTaskHouseKeeper = mongoose.model('assignedTaskHouseKeeper', assignedTaskHouseKeeperSchema);

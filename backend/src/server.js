@@ -32,6 +32,8 @@ import houseKeeperRouter from './routes/houseKeeper.js';
 import vehicleRouter from './routes/vehicle.js';
 import eventRouter from './routes/event.js';
 import paymentRouter from './routes/payment.js';
+import taskRouter from './routes/assignedTaskHouseKeeper.js';
+import assignVehicle from './routes/assignVehicle.js'
 
 // Routers use
 app.use("/customer",customerRouter);
@@ -41,6 +43,8 @@ app.use("/houseKeeper", houseKeeperRouter);
 app.use("/vehicle", vehicleRouter);
 app.use("/events", eventRouter);
 app.use("/payments", paymentRouter);
+app.use("/tasks", taskRouter);
+app.use("/assignVehicle", assignVehicle);
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`))
 

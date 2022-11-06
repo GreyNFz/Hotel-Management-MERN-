@@ -219,31 +219,22 @@ export default function AddReservation() {
 	return (
 
 		<div class="wrapper" style={{backgroundColor: 'transaprent'}}>
-
 			<Navbar />
-
 			<div class="main" style={{backgroundColor: '#D3D3D3'}}>
-
 				{/* top nav */}
-
 				<main class="content mt-3">
 					<div class="container-fluid">
-
 						<div class="header">
 							<h1 class="header-title mt-1">
 								Reservation Management
 							</h1>
-
 						</div>
-
 						<div class="col-md-12">
                             <div class="card">
                                 <div class="card-body" >
-
                                     <div class="row mb-4">
                                         <h5 class="fw-semibold fs-4">ADD NEW RESERVATION</h5>
                                     </div>
-
                                     <div class="row px-4 mb-2">
                                         <div class="mb-3 col-md-6">
                                             <label for="roomCode">NIC</label>
@@ -251,7 +242,6 @@ export default function AddReservation() {
                                             onChange={onChangeNic} value={nic}/>
                                         </div>
                                     </div>
-
                                     <div class="row px-4 mb-2">
                                         <div class="mb-3 col-md-6">
                                             <label for="name">Name</label>
@@ -264,7 +254,6 @@ export default function AddReservation() {
                                             onChange={(e) => setPhoneNumber(e.target.value)} value={phoneNumber}/>
                                         </div>
                                     </div>
-
                                     <div class="row px-4 mb-2">
                                         <div class="mb-3 col-md-6">
                                             <label for="addressLine1">Address Line 01</label>
@@ -338,7 +327,6 @@ export default function AddReservation() {
                                             />
                                         </div>
                                     </div>
-
                                     <div class="row px-4 mb-2">
                                         <div class="mb-3 col-md-6 mb-2 ml-2">
                                             <label for="type">Room Type</label>
@@ -367,7 +355,6 @@ export default function AddReservation() {
                                             />
                                         </div>
                                     </div>
-
                                     <div class="row px-4 mb-2">
                                         <div class="mb-3 col-md-6">
                                             <label for="numOfAdults">Number of Adults</label>

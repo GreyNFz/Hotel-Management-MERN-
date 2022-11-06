@@ -26,3 +26,19 @@ export const editHouseKeeper = async (newItem, id) => {
     const { data } = await axios.post(baseURL + '/houseKeeper/update/' + id, newItem);
     return data;
 }
+
+export const assignTask = async (newItem) => {
+    const { data } = await axios.post(baseURL + '/tasks/add/', newItem);
+    return data;
+}
+
+export const getAvailableHouseKeepers = async (date) => {
+    console.log(date);
+    const { data } = await axios.get(baseURL + '/tasks/getAvailableHouseKeepers/' + date);
+    return data;
+}
+
+export const getTasksOfAHouseKeeper = async (id) => {
+    const { data } = await axios.get(baseURL + '/tasks/viewTasksOfAHouseKeeper/' + id);
+    return data;
+}

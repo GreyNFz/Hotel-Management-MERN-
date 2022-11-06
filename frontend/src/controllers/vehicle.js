@@ -31,3 +31,14 @@ export const editVehicle = async (newItem, id) => {
     const { data } = await axios.post(baseURL + '/vehicle/update/' + id, newItem);
     return data;
 }
+
+export const assignVehicle = async (newItem) => {
+    const { data } = await axios.post(baseURL + '/assignVehicle/add/', newItem);
+    return data;
+}
+
+export const getAvaiableNotAssignedVehicles = async (date) => {
+    console.log(date);
+    const { data } = await axios.get(baseURL + '/assignVehicle/getAvaiableNotAssignedVehicles/' + date);
+    return data;
+}

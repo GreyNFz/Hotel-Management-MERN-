@@ -8,7 +8,8 @@ export const addHouseKeeper = async (req, res) => {
         gender: req.body.gender ,
         mobile: req.body.mobile , 
         address: req.body.address ,
-        joinedDate: req.body.joinedDate.substring(0,10)
+        joinedDate: req.body.joinedDate.substring(0,10) ,
+        status: "Avaiable",
     })
 
     newHouseKeeper = await newHouseKeeper.save().then((newHouseKeeper)=>{
@@ -67,3 +68,36 @@ export const deleteHouseKeeper = async (req, res) => {
         res.status(500).send({status:"Error with deleting data",error:err.message})
     })
 }
+
+// export const assignTaskToHouseKeeper= async (req, res) => {
+//     let id = req.params.id;
+//     let room  = req.params.room;
+    
+//     let newHousekeeper = {
+//         room: room,
+//         status: "Busy"
+//     }
+
+//     newHousekeeper = await HouseKeeper.findByIdAndUpdate(id, newHousekeeper).then((newHousekeeper) => {
+//         res.status(200).send({status: "Task Assigned to the houseKeeper"})
+//     }).catch((err)=>{
+//         console.log(err);
+//         res.status(500).send({status:"Error with updating data",error:err.message})
+//     })
+// }
+
+// export const completeAssignedTask= async (req, res) => {
+//     let id = req.params.id;
+    
+//     let newHousekeeper = {
+//         room: null,
+//         status: "Busy"
+//     }
+
+//     newHousekeeper = await HouseKeeper.findByIdAndUpdate(id, newHousekeeper).then((newHousekeeper) => {
+//         res.status(200).send({status: "Task completed"})
+//     }).catch((err)=>{
+//         console.log(err);
+//         res.status(500).send({status:"Error with updating data",error:err.message})
+//     })
+// }
