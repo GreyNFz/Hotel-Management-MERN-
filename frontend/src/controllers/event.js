@@ -31,3 +31,5 @@ export const editEvent = async (newItem, id) => {
     const { data } = await axios.post(baseURL + '/events/update/' + id, newItem);
     return data;
 }
+
+
